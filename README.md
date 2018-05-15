@@ -1,5 +1,7 @@
 # NinjaSpaceX
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6b04218669f449f8bd3faaa071c609ed)](https://www.codacy.com/app/renaud.bellec.3/ninjaSpaceX?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=esgiprojetninja/ninjaSpaceX&amp;utm_campaign=Badge_Grade)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 ## Development server
