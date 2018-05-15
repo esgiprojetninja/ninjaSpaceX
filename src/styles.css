@@ -5,3 +5,26 @@ body {
     margin: 0;
     font-family: Roboto;
 }
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.screen-height {
+    height: calc(95vh - 36px);
+}
+
