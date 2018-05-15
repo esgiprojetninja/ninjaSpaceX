@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatButtonModule } from "@angular/material/button";
@@ -13,6 +14,7 @@ import { MatListModule } from "@angular/material/list";
     MatSidenavModule,
     MatButtonModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     MatCardModule,
     MatListModule
   ],

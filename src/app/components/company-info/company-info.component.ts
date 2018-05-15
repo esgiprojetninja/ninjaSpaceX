@@ -8,13 +8,19 @@ import { CompanyService } from "../../providers/backend/company/company.service"
   styleUrls: ["./company-info.component.css"]
 })
 export class CompanyInfoComponent implements OnInit {
+  public companyInfo: CompanyInfo;
+  public isLoading: boolean;
+
   constructor(private companyService: CompanyService) {}
 
-  companyInfo: CompanyInfo;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.companyService
       .getCompanyInfo()
-      .subscribe(data => (this.companyInfo = data));
+      .subscribe(data => {
+        this.companyInfo = data;
+        this.isLoading = false;
+      });
   }
 }

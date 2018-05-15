@@ -16,6 +16,7 @@ export class LaunchService {
   fetchLatestLaunch(): Observable<Launch | ApiError> {
     return this.appService.get("launches/latest").pipe(
       map((res: Launch) => {
+        // code métier, redux etc.
         if (!res || !res.flight_number) {
           const err: ApiError = {
             hasError: true,
