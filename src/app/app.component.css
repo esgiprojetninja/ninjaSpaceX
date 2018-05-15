@@ -1,0 +1,14 @@
+.main-container {
+    flex: 1;
+    min-height: 100vh;
+}
+
+.main-drawer {
+    flex: 1;
+    height: 100vh;
+    padding: 20px;
+}
+
+.content-container {
+    padding: 15px;
+}

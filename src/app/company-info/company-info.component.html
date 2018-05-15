@@ -1,0 +1,14 @@
+
+<mat-card *ngIf="companyInfo">
+  <mat-card-header>
+    <div mat-card-avatar class="spacex-logo"></div>
+    <mat-card-title>{{ companyInfo.name }}</mat-card-title>
+    <mat-card-subtitle>Founder: {{ companyInfo.founder }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://i.ytimg.com/vi/RKWX4WG3vm8/maxresdefault.jpg" alt="Space X logo">
+  <mat-card-content>
+    <p>
+      {{ companyInfo.summary }}
+    </p>
+  </mat-card-content>
+</mat-card>

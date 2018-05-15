@@ -1,5 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams
+} from "@angular/common/http";
 import { CompanyInfo } from "../../models/CompanyInfo";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
@@ -45,17 +49,14 @@ export class SpacexApiService {
   }
 
   getFilteredLaunches(filters: LaunchFilters) {
-    let parsedFilters = "";
+    const httpParams = new HttpParams();
     for (const key in filters) {
       if (filters.hasOwnProperty(key)) {
-        if (parsedFilters.length !== 0) {
-          parsedFilters = parsedFilters + "&";
-        }
-        parsedFilters = parsedFilters + key + "=" + filters[key];
+        httpParams.append(key, filters[key]);
       }
     }
     return this.restClient
-      .get<Launch[]>(`${this.baseUrl}launches?${parsedFilters}`)
+      .get<Launch[]>(`${this.baseUrl}launches`, { params: httpParams })
       .pipe(catchError(this.handleError));
   }
 
