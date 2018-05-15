@@ -2,62 +2,46 @@ import { Injectable } from "@angular/core";
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpParams
+  HttpParams,
+  HttpHeaders
 } from "@angular/common/http";
-import { CompanyInfo } from "../../models/CompanyInfo";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { Launch } from "../../models/Launch";
-import { LaunchFilters, Order } from "../../models/LaunchFilters";
+
 
 @Injectable({
   providedIn: "root"
 })
 export class SpacexApiService {
-  baseUrl = "https://api.spacexdata.com/v2/";
+  private static baseUrl = "https://api.spacexdata.com/v2/";
+  private _access_token: String = "";
 
   constructor(private restClient: HttpClient) {}
 
-  getCompanyInfo(): Observable<CompanyInfo> {
-    return this.restClient
-      .get<CompanyInfo>(`${this.baseUrl}info`)
-      .pipe(catchError(this.handleError));
-  }
-
-  getLatestLaunch() {
-    return this.restClient
-      .get<Launch>(`${this.baseUrl}launches/latest`)
-      .pipe(catchError(this.handleError));
-  }
-
-  getPastLaunches() {
-    return this.restClient
-      .get<Launch[]>(`${this.baseUrl}launches`)
-      .pipe(catchError(this.handleError));
-  }
-
-  getUpcomingLaunches() {
-    return this.restClient
-      .get<Launch[]>(`${this.baseUrl}launches/upcoming`)
-      .pipe(catchError(this.handleError));
-  }
-
-  getAllLaunches() {
-    return this.restClient
-      .get<Launch[]>(`${this.baseUrl}launches/all`)
-      .pipe(catchError(this.handleError));
-  }
-
-  getFilteredLaunches(filters: LaunchFilters) {
+  private getOptions(options?: any): { headers: HttpHeaders, params: HttpParams, withCredentials: boolean } {
     const httpParams = new HttpParams();
-    for (const key in filters) {
-      if (filters.hasOwnProperty(key)) {
-        httpParams.append(key, filters[key]);
+    const httpHeaders = new HttpHeaders();
+    if (options && options.params) {
+      for (const key in options.params) {
+        if (options.params.hasOwnProperty(key)) {
+          httpParams.append(key, options.params[key]);
+        }
       }
     }
-    return this.restClient
-      .get<Launch[]>(`${this.baseUrl}launches`, { params: httpParams })
-      .pipe(catchError(this.handleError));
+    httpHeaders.append("Authorization", `Bearer ${this._access_token}`);
+    httpHeaders.append("Content-Type", "application/json");
+    if (options && options.headers) {
+      for (const key in options.headers) {
+        if (options.headers.hasOwnProperty(key)) {
+          httpHeaders.append(key, options.headers[key]);
+        }
+      }
+    }
+    return {
+      headers: httpHeaders,
+      params: httpParams,
+      withCredentials: !!this._access_token
+    };
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -73,5 +57,45 @@ export class SpacexApiService {
     }
     // return an observable with a user-facing error message
     return throwError("Something bad happened; please try again later.");
+  }
+
+  get(route: string, options?: any): Observable<any> {
+    options = this.getOptions(options);
+    return this.restClient.get(`${SpacexApiService.baseUrl}${route}`, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  put(route: string, body: any, options?: any): Observable<any> {
+    options = this.getOptions(options);
+    return this.restClient.put(`${SpacexApiService.baseUrl}${route}`, body, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  post(route: string, body: any, options?: any): Observable<any> {
+    options = this.getOptions(options);
+    return this.restClient.post(`${SpacexApiService.baseUrl}${route}`, body, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  delete(route: string, body: any, options?: any): Observable<any> {
+    options = this.getOptions(options);
+    return this.restClient.delete(`${SpacexApiService.baseUrl}${route}`, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  patch(route: string, body: any, options?: any): Observable<any> {
+    options = this.getOptions(options);
+    return this.restClient.patch(`${SpacexApiService.baseUrl}${route}`, body, options)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 }

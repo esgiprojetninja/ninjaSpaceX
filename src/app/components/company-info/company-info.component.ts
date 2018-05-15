@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { SpacexApiService } from "src/app/providers/backend/spacex-api.service";
-import { CompanyInfo } from "../models/CompanyInfo";
+import { CompanyInfo } from "../../models/CompanyInfo";
+import { CompanyService } from "../../providers/backend/company/company.service";
 
 @Component({
   selector: "app-company-info",
@@ -8,12 +8,12 @@ import { CompanyInfo } from "../models/CompanyInfo";
   styleUrls: ["./company-info.component.css"]
 })
 export class CompanyInfoComponent implements OnInit {
-  constructor(private spaceXService: SpacexApiService) {}
+  constructor(private companyService: CompanyService) {}
 
   companyInfo: CompanyInfo;
 
   ngOnInit(): void {
-    this.spaceXService
+    this.companyService
       .getCompanyInfo()
       .subscribe(data => (this.companyInfo = data));
   }
