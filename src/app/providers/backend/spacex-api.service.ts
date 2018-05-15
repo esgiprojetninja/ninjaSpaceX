@@ -4,6 +4,7 @@ import { CompanyInfo } from "../../models/CompanyInfo";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { Launch } from "../../models/Launch";
+import { LaunchFilters, Order } from "../../models/LaunchFilters";
 
 @Injectable({
   providedIn: "root"
@@ -43,11 +44,7 @@ export class SpacexApiService {
       .pipe(catchError(this.handleError));
   }
 
-  getFilteredLaunches() {
-    const filters = {
-      core_reuse: true,
-      order: "asc"
-    };
+  getFilteredLaunches(filters: LaunchFilters) {
     let parsedFilters = "";
     for (const key in filters) {
       if (filters.hasOwnProperty(key)) {
@@ -57,7 +54,6 @@ export class SpacexApiService {
         parsedFilters = parsedFilters + key + "=" + filters[key];
       }
     }
-    console.log(parsedFilters);
     return this.restClient
       .get<Launch[]>(`${this.baseUrl}launches?${parsedFilters}`)
       .pipe(catchError(this.handleError));

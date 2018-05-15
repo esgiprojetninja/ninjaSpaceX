@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SpacexApiService } from "./providers/backend/spacex-api.service";
+import { Order } from "./models/LaunchFilters";
 
 @Component({
   selector: "app-root",
@@ -28,7 +29,10 @@ export class AppComponent implements OnInit {
       .getAllLaunches()
       .subscribe(data => console.log(JSON.stringify(data)));
     this.spaceXService
-      .getFilteredLaunches()
+      .getFilteredLaunches({
+        core_reuse: true,
+        order: Order.asc
+      })
       .subscribe(data => console.log(JSON.stringify(data)));
   }
 }
