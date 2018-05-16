@@ -1,0 +1,11 @@
+<div *ngIf="isLoading" class="full-width screen-height flex-row">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card *ngIf="!isLoading">
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let launch of launches"> {{ launch.mission_name }} </mat-list-item>
+     </mat-list>
+  </mat-card-content>
+</mat-card>
