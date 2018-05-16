@@ -11,38 +11,25 @@ import { LaunchFilters } from "src/app/models/LaunchFilters";
   providedIn: "root"
 })
 export class LaunchService {
-  constructor(private appService: SpacexApiService) { }
+  constructor(private appService: SpacexApiService) {}
 
-  fetchLatestLaunch(): Observable<Launch | ApiError> {
-    return this.appService.get("launches/latest").pipe(
-      map((res: Launch) => {
-        // code métier, redux etc.
-        if (!res || !res.flight_number) {
-          const err: ApiError = {
-            hasError: true,
-            error: res,
-            message: "Failed to fetch latest launch"
-          };
-          return err;
-        }
-        return res;
-      })
-    );
+  fetchLatestLaunch(): Observable<Launch> {
+    return this.appService.get("launches/latest");
   }
 
-  fetchPastLaunches(): Observable<Launch[] | ApiError> {
+  fetchPastLaunches(): Observable<Launch[]> {
     return this.appService.get("launches");
   }
 
-  fetchUpcomingLaunches(): Observable<Launch[] | ApiError> {
+  fetchUpcomingLaunches(): Observable<Launch[]> {
     return this.appService.get("launches/upcoming");
   }
 
-  fetchAllLaunches(): Observable<Launch[] | ApiError> {
+  fetchAllLaunches(): Observable<Launch[]> {
     return this.appService.get("launches/all");
   }
 
-  fetchFilteredLaunches(params: LaunchFilters): Observable<Launch[] | ApiError> {
+  fetchFilteredLaunches(params: LaunchFilters): Observable<Launch[]> {
     return this.appService.get("launches", { params });
   }
 }

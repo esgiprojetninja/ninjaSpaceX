@@ -40,3 +40,7 @@ body {
     height: calc(95vh - 36px);
 }
 
+.card-header-image {
+    background-size: cover;
+}
+

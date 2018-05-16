@@ -8,7 +8,6 @@ import {
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 
-
 @Injectable({
   providedIn: "root"
 })
@@ -18,13 +17,15 @@ export class SpacexApiService {
 
   constructor(private restClient: HttpClient) {}
 
-  private getOptions(options?: any): { headers: HttpHeaders, params: HttpParams, withCredentials: boolean } {
-    const httpParams = new HttpParams();
+  private getOptions(
+    options?: any
+  ): { headers: HttpHeaders; params: HttpParams; withCredentials: boolean } {
+    let httpParams = new HttpParams();
     const httpHeaders = new HttpHeaders();
     if (options && options.params) {
       for (const key in options.params) {
         if (options.params.hasOwnProperty(key)) {
-          httpParams.append(key, options.params[key]);
+          httpParams = httpParams.append(key, options.params[key]);
         }
       }
     }
@@ -61,41 +62,36 @@ export class SpacexApiService {
 
   get(route: string, options?: any): Observable<any> {
     options = this.getOptions(options);
-    return this.restClient.get(`${SpacexApiService.baseUrl}${route}`, options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.restClient
+      .get(`${SpacexApiService.baseUrl}${route}`, options)
+      .pipe(catchError(this.handleError));
   }
 
   put(route: string, body: any, options?: any): Observable<any> {
     options = this.getOptions(options);
-    return this.restClient.put(`${SpacexApiService.baseUrl}${route}`, body, options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.restClient
+      .put(`${SpacexApiService.baseUrl}${route}`, body, options)
+      .pipe(catchError(this.handleError));
   }
 
   post(route: string, body: any, options?: any): Observable<any> {
     options = this.getOptions(options);
-    return this.restClient.post(`${SpacexApiService.baseUrl}${route}`, body, options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.restClient
+      .post(`${SpacexApiService.baseUrl}${route}`, body, options)
+      .pipe(catchError(this.handleError));
   }
 
   delete(route: string, body: any, options?: any): Observable<any> {
     options = this.getOptions(options);
-    return this.restClient.delete(`${SpacexApiService.baseUrl}${route}`, options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.restClient
+      .delete(`${SpacexApiService.baseUrl}${route}`, options)
+      .pipe(catchError(this.handleError));
   }
 
   patch(route: string, body: any, options?: any): Observable<any> {
     options = this.getOptions(options);
-    return this.restClient.patch(`${SpacexApiService.baseUrl}${route}`, body, options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.restClient
+      .patch(`${SpacexApiService.baseUrl}${route}`, body, options)
+      .pipe(catchError(this.handleError));
   }
 }

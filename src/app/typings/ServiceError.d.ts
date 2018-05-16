@@ -1,5 +1,5 @@
 export type ApiError = {
-    hasError: true,
-    error: any,
-    message: string
-}
+  hasError: true;
+  error: any;
+  message: string;
+};

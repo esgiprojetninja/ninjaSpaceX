@@ -5,6 +5,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from "../../app.component";
 import { CompanyInfoComponent } from "../../components/company-info/company-info.component";
 import { RocketListComponent } from "../../components/rocket-list/rocket-list.component";
+import { LaunchesListComponent } from "../../components/launches-list/launches-list.component";
+import { LaunchComponent } from "../../components/launch/launch.component";
 
 const appRoutes: Routes = [
   {
@@ -18,6 +20,14 @@ const appRoutes: Routes = [
   {
     path: "rockets",
     component: RocketListComponent
+  },
+  {
+    path: "launches",
+    component: LaunchesListComponent
+  },
+  {
+    path: "launches/:id",
+    component: LaunchComponent
   }
 ];
 
