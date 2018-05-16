@@ -7,9 +7,15 @@ import { AppRoutingModule } from "./modules/app-routing/app-routing.module";
 import { CompanyInfoComponent } from "./components/company-info/company-info.component";
 import { LaunchesListComponent } from "./components/launches-list/launches-list.component";
 import { SharedModule } from "./modules/shared/shared.module";
+import { LaunchComponent } from "./components/launch/launch.component";
 
 @NgModule({
-  declarations: [AppComponent, CompanyInfoComponent, LaunchesListComponent],
+  declarations: [
+    AppComponent,
+    CompanyInfoComponent,
+    LaunchesListComponent,
+    LaunchComponent
+  ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent]

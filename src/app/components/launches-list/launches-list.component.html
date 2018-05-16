@@ -5,7 +5,13 @@
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
     <mat-list>
-      <mat-list-item *ngFor="let launch of launches"> {{ launch.mission_name }} </mat-list-item>
-     </mat-list>
+      <a
+        mat-list-item
+        *ngFor="let launch of launches"
+        [routerLink]="['/launches', launch.flight_number]"
+      >
+        {{ launch.mission_name }}
+      </a>
+    </mat-list>
   </mat-card-content>
 </mat-card>
