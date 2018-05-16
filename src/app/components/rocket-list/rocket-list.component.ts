@@ -13,14 +13,20 @@ export class RocketListComponent implements OnInit, OnDestroy {
   public isLoading: boolean;
   public rockets$: Observable<Rocket[]>;
   private subscriber: Subscription;
+  public selectedRocket: Rocket;
 
   constructor(private rocketService: RocketService) { }
+
+  selectRocket(rocket: Rocket) {
+    this.selectedRocket = rocket;
+  }
 
   ngOnInit() {
     this.isLoading = true;
     this.rockets$ = this.rocketService.fetchAll();
     this.subscriber = this.rockets$.subscribe((rockets: Rocket[]) => {
       this.isLoading = false;
+      this.selectedRocket = rockets[0];
     });
   }
 

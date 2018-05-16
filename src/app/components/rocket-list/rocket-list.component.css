@@ -1,4 +1,20 @@
-mat-list-item {
-    width: 100%;
+mat-list {
     max-width: 200px;
+}
+
+mat-list-item {
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+mat-list-item.active-rocket {
+    background-color: rgba(8, 8, 8, .1);
+}
+
+mat-list-item:hover {
+    background-color: rgba(8, 8, 8, .1);
+}
+
+.displaid-rocket{
+
 }
