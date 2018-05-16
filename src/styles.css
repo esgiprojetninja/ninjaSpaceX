@@ -20,8 +20,20 @@ body {
     justify-content: center;
 }
 
+.align-start {
+    align-self: flex-start;
+}
+
 .full-width {
     width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.margin-auto {
+    margin: auto;
 }
 
 .screen-height {

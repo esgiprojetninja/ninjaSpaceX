@@ -1,3 +1,19 @@
-<p>
-  rocket-list works!
-</p>
+<div class="flex-column">
+  <h2 class="align-start" color="primary">Rocket List</h2>
+  <p *ngIf="isLoading">Fetching latest data</p>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>
+
+<mat-list *ngIf="rockets$ | async; let rockets">
+  <mat-list-item *ngFor="let rocket of rockets">
+    <img matListAvatar [src]="getRocketImage(rocket.id)" alt="{{rocket.id}}">
+    <h3 matLine> {{rocket.name}} </h3>
+    <p matLine>
+      <span class="flex-row">
+        Launch
+        <mat-icon color="primary" *ngIf="rocket.active">done</mat-icon>
+        <mat-icon color="primary" *ngIf="!rocket.active">cancel</mat-icon>
+      </span>
+    </p>
+  </mat-list-item>
+</mat-list>
