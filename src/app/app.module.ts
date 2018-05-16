@@ -6,9 +6,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./modules/app-routing/app-routing.module";
 import { CompanyInfoComponent } from "./components/company-info/company-info.component";
 import { SharedModule } from "./modules/shared/shared.module";
+import { RocketListComponent } from "./components/rocket-list/rocket-list.component";
 
 @NgModule({
-  declarations: [AppComponent, CompanyInfoComponent],
+  declarations: [AppComponent, CompanyInfoComponent, RocketListComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent]
