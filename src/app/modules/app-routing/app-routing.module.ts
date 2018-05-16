@@ -6,6 +6,7 @@ import { CompanyInfoComponent } from "../../components/company-info/company-info
 import { LaunchesListComponent } from "../../components/launches-list/launches-list.component";
 import { LaunchComponent } from "../../components/launch/launch.component";
 import { CapsulesListComponent } from "../../components/capsules-list/capsules-list.component";
+import { CapsuleComponent } from "../../components/capsule/capsule.component";
 
 const appRoutes: Routes = [
   {
@@ -27,6 +28,10 @@ const appRoutes: Routes = [
   {
     path: "capsules",
     component: CapsulesListComponent
+  },
+  {
+    path: "capsules/:id",
+    component: CapsuleComponent
   }
 ];
 

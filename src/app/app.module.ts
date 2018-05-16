@@ -9,6 +9,7 @@ import { LaunchesListComponent } from "./components/launches-list/launches-list.
 import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
 import { CapsulesListComponent } from "./components/capsules-list/capsules-list.component";
+import { CapsuleComponent } from "./components/capsule/capsule.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CapsulesListComponent } from "./components/capsules-list/capsules-list.
     CompanyInfoComponent,
     LaunchesListComponent,
     LaunchComponent,
-    CapsulesListComponent
+    CapsulesListComponent,
+    CapsuleComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],

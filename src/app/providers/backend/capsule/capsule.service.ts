@@ -12,4 +12,8 @@ export class CapsuleService {
   fetchAllCapsules(): Observable<Capsule[]> {
     return this.appService.get("capsules");
   }
+
+  fetchCapsule(capsuleId: string): Observable<Capsule> {
+    return this.appService.get(`capsules/${capsuleId}`);
+  }
 }

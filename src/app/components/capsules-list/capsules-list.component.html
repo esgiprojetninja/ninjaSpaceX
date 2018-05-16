@@ -8,7 +8,7 @@
         <a
           mat-list-item
           *ngFor="let capsule of capsules"
-          [routerLink]="['/capsules', capsule.flight_number]"
+          [routerLink]="['/capsules', capsule.id]"
         >
           {{ capsule.name }}
         </a>
