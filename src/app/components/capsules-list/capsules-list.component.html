@@ -1,0 +1,17 @@
+<div *ngIf="isLoading" class="full-width screen-height flex-row">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <mat-card *ngIf="!isLoading">
+    <mat-card-content>
+      <mat-list>
+        <a
+          mat-list-item
+          *ngFor="let capsule of capsules"
+          [routerLink]="['/capsules', capsule.flight_number]"
+        >
+          {{ capsule.name }}
+        </a>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
