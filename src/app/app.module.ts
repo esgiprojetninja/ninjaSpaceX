@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./modules/app-routing/app-routing.module";
-import { CompanyInfoComponent } from "./company-info/company-info.component";
+import { CompanyInfoComponent } from "./components/company-info/company-info.component";
 import { SharedModule } from "./modules/shared/shared.module";
 
 @NgModule({
