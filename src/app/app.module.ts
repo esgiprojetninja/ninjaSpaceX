@@ -10,6 +10,8 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
 import { CapsulesListComponent } from "./components/capsules-list/capsules-list.component";
 import { CapsuleComponent } from "./components/capsule/capsule.component";
+import { LaunchpadListComponent } from './components/launchpad-list/launchpad-list.component';
+import { LaunchpadComponent } from './components/launchpad/launchpad.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CapsuleComponent } from "./components/capsule/capsule.component";
     LaunchesListComponent,
     LaunchComponent,
     CapsulesListComponent,
-    CapsuleComponent
+    CapsuleComponent,
+    LaunchpadListComponent,
+    LaunchpadComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
