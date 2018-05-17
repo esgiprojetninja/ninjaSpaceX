@@ -9,6 +9,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatChipsModule } from "@angular/material/chips";
 
 @NgModule({
   imports: [CommonModule],
@@ -22,7 +23,8 @@ import { MatDividerModule } from "@angular/material/divider";
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
   declarations: []
 })

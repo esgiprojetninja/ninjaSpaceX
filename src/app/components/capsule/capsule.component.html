@@ -2,18 +2,19 @@
     <mat-spinner></mat-spinner>
   </div>
 
-  <mat-card *ngIf="!isLoading">
+  <mat-card *ngIf="!isLoading" class="example-card" >
     <mat-card-header>
       <mat-card-title>{{ capsule.name }}</mat-card-title>
       <mat-card-subtitle>{{ capsule.type }} </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
-        ...
+        Overview
       </p>
       <mat-list>
         <mat-list-item>
-          <p>...</p>
+          <p>TOTAL LAUNCH PAYLOAD MASS</p>
+          <p>{{ capsule.launch_payload_mass.kg }}</p>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
@@ -21,3 +22,8 @@
       <button mat-button>...</button>
     </mat-card-actions>
   </mat-card>
+
+  <div *ngIf="isLoading" class="full-width screen-height flex-row">
+    <mat-spinner></mat-spinner>
+  </div>
+  
