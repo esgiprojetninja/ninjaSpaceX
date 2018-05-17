@@ -9,8 +9,10 @@ import { CapsulesListComponent } from "../../components/capsules-list/capsules-l
 import { CapsuleComponent } from "../../components/capsule/capsule.component";
 import { LaunchpadListComponent } from "../../components/launchpad-list/launchpad-list.component";
 import { LaunchpadComponent } from "../../components/launchpad/launchpad.component";
+import { DetailedCoreListComponent } from "../../components/detailed-core-list/detailed-core-list.component";
 import { DetailedcapsulesListComponent } from "../../components/detailedcapsules-list/detailedcapsules-list.component";
-import { DetailedcapsuleComponent } from "../../components/detailedcapsule/detailedcapsule.component"; 
+import { DetailedcapsuleComponent } from "../../components/detailedcapsule/detailedcapsule.component";
+import { DetailCoreComponent } from "../../components/detail-core/detail-core.component";
 
 const appRoutes: Routes = [
   {
@@ -44,6 +46,14 @@ const appRoutes: Routes = [
   {
     path: "launchpads/:id",
     component: LaunchpadComponent
+  },
+  {
+    path: "detailed-cores",
+    component: DetailedCoreListComponent
+  },
+  {
+    path: "detailed-cores/:id",
+    component: DetailCoreComponent
   },
   {
     path: "detailed-capsules",

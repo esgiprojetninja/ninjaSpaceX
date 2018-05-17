@@ -7,10 +7,10 @@
     <mat-list>
       <a
         mat-list-item
-        *ngFor="let capsule of capsules"
-        [routerLink]="['/capsules', capsule.id]"
+        *ngFor="let detailedCore of detailedCores"
+        [routerLink]="['/detailed-cores', detailedCore.core_serial]"
       >
-        {{ capsule.name }}
+        {{ detailedCore.core_serial }}
       </a>
     </mat-list>
   </mat-card-content>
