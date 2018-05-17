@@ -3,6 +3,12 @@
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <p class="main-toolbar-title" align="center">
+      <span>SpaceX API explorer</span>
+    </p>
+    <a mat-icon-button href="https://github.com/esgiprojetninja/ninjaSpaceX" target="_blank">
+      <span class="fab fa-github"></span>
+    </a>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container class="main-container" autosize>
@@ -12,6 +18,7 @@
         <a mat-list-item routerLink="/launches">Launches</a>
         <a mat-list-item routerLink="/capsules">Capsules</a>
         <a mat-list-item routerLink="/launchpads">Launchpads</a>
+        <a mat-list-item routerLink="/detailed-cores">Detailed cores</a>
         <a mat-list-item routerLink="/detailed-capsules">Detailed Capsules</a>
       </mat-nav-list>
   </mat-drawer>
@@ -19,4 +26,15 @@
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>
+<footer class="footer">
+  <div>
+    <h4>SpaceX API explorer</h4>
+  </div>
+  <div>
+    <p class="copyright">Team ninja © all rights reserved.</p>
+  </div>
+  <div>
+    <a href="https://github.com/esgiprojetninja">Our work</a>
+  </div>
+</footer>
 

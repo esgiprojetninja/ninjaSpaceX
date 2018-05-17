@@ -4,14 +4,14 @@
 
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
-    <mat-nav-list>
+    <mat-list>
       <a
         mat-list-item
-        *ngFor="let launch of launches"
-        [routerLink]="['/launches', launch.flight_number]"
+        *ngFor="let detailedCore of detailedCores"
+        [routerLink]="['/detailed-cores', detailedCore.core_serial]"
       >
-        {{ launch.mission_name }}
+        {{ detailedCore.core_serial }}
       </a>
-    </mat-nav-list>
+    </mat-list>
   </mat-card-content>
 </mat-card>
