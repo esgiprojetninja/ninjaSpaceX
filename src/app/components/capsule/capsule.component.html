@@ -4,32 +4,18 @@
 
   <mat-card *ngIf="!isLoading" class="example-card" >
     <mat-card-header>
-        <div
-        mat-card-avatar
-        class="card-header-image"
-        [ngStyle]="{'background-image': 'url(http://spacex.com/sites/all/themes/spacex2012/images/dragon2/spacecraft.png)'}"></div>
       <mat-card-title>{{ capsule.name }}</mat-card-title>
+      <mat-card-subtitle>{{ capsule.type }} </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
+      <p>
+        Overview
+      </p>
       <mat-list>
-        <mat-grid-list cols="2" rowHeight="2:1">
-            <mat-grid-tile>
-              <mat-grid-tile-header> TOTAL LAUNCH PAYLOAD MASS </mat-grid-tile-header>
-              {{ capsule.launch_payload_mass.kg }}kg
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <mat-grid-tile-header>TOTAL RETURN PAYLOAD MASS </mat-grid-tile-header>
-              {{ capsule.return_payload_mass.kg }}kg
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <mat-grid-tile-header> TOTAL LAUNCH PAYLOAD VOLUME </mat-grid-tile-header>
-              {{ capsule.launch_payload_vol.cubic_meters }}m3
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <mat-grid-tile-header> TOTAL RETURN PAYLOAD VOLUME </mat-grid-tile-header>
-              {{ capsule.return_payload_vol.cubic_meters }}m3
-            </mat-grid-tile>
-        </mat-grid-list>
+        <mat-list-item>
+          <p>TOTAL LAUNCH PAYLOAD MASS</p>
+          <p>{{ capsule.launch_payload_mass.kg }}</p>
+        </mat-list-item>
       </mat-list>
     </mat-card-content>
     <mat-card-actions>
