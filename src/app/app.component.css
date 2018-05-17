@@ -5,10 +5,30 @@
 
 .main-drawer {
     flex: 1;
-    height: 100vh;
-    padding: 20px;
+    min-height: 100%;
 }
 
 .content-container {
     padding: 15px;
+}
+
+.main-toolbar-title {
+    flex: 1 1 auto;
+}
+
+.footer {
+    background-color: #3f51b5;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.footer a {
+    color: #FFFFFF;
+}
+
+.copyright {
+    font-size: 12px;
 }

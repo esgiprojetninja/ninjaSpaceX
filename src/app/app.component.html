@@ -3,6 +3,12 @@
     <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <p class="main-toolbar-title" align="center">
+      <span>SpaceX API explorer</span>
+    </p>
+    <a mat-icon-button href="https://github.com/esgiprojetninja/ninjaSpaceX" target="_blank">
+      <span class="fab fa-github"></span>
+    </a>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container class="main-container" autosize>
@@ -23,4 +29,15 @@
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>
+<footer class="footer">
+  <div>
+    <h4>SpaceX API explorer</h4>
+  </div>
+  <div>
+    <p class="copyright">Team ninja © all rights reserved.</p>
+  </div>
+  <div>
+    <a href="https://github.com/esgiprojetninja">Our work</a>
+  </div>
+</footer>
 
