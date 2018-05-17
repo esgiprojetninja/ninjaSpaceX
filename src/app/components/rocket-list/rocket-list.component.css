@@ -49,3 +49,6 @@ mat-list-item:hover {
     font-weight: 900;
     margin: 0 auto;
 }
+.displaid-rocket mat-expansion-panel-header {
+    background-color: rgb(25, 32, 71, .1);
+}

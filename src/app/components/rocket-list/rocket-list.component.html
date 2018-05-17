@@ -35,8 +35,16 @@
           <mat-panel-title>First Stage</mat-panel-title>
           <mat-panel-description>The early takeoff phasis</mat-panel-description>
         </mat-expansion-panel-header>
-        
-        <h6>POULAAAAAAY</h6>
+        <div class="selected-rocket-panel-content full-width flex-column align-items-start">
+          <p class="flex-row">Usage status: 
+            <mat-icon color="primary" *ngIf="selectedRocket.first_stage.reusable">autorenew</mat-icon>
+            <mat-icon color="primary" *ngIf="!selectedRocket.first_stage.reusable">clear</mat-icon>
+          </p>
+          <p>{{ selectedRocket.first_stage.engines > 0 ? 'Engines: '+ selectedRocket.first_stage.engines : 'No engines'  }}</p>
+          <p>{{ selectedRocket.first_stage.fuel_amount_tons }} tons of fuel consumed in {{ selectedRocket.first_stage.burn_time_sec }} seconds</p>
+          <p>Thrust sea level: {{ selectedRocket.first_stage.thrust_sea_level.kN}} kN</p>
+          <p>Thrust vacuum: {{ selectedRocket.first_stage.thrust_vacuum.kN}} kN</p>
+        </div>
       </mat-expansion-panel>
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>

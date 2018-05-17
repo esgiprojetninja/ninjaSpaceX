@@ -22,7 +22,6 @@ export interface RocketFirstStage {
     reusable: boolean;
     engines: number;
     fuel_amount_tons: number;
-    cores: number;
     burn_time_sec: number;
     thrust_sea_level: RocketThrust;
     thrust_vacuum: RocketThrust;
