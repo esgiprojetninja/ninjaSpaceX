@@ -12,6 +12,8 @@
       <p>{{ selectedRocket.diameter.feet | hugeNumber }}<span class="rocket-unit">ft</span> large</p>
       <p>{{ selectedRocket.mass.lb | hugeNumber }}<span class="rocket-unit">lb</span> heavy</p>
       <p>{{ getBoostersDisplay() }}</p>
+      <p *ngIf="selectedRocket.landing_legs.number > 0">{{ selectedRocket.landing_legs.number }} landing legs made of {{ selectedRocket.landing_legs.material }}</p>
+      <p *ngIf="selectedRocket.landing_legs.number == 0">No landing legs</p>
       <p>${{ selectedRocket.cost_per_launch | hugeNumber }} per launch</p>
     </div>
   </div>
@@ -75,20 +77,6 @@
           <p>Thrust vacuum: {{ selectedRocket.engines.thrust_vacuum.kN}} kN</p>
           <p>Thrust weight ratio: {{ selectedRocket.engines.thrust_to_weight}}</p>
         </div>
-
-        <!-- 
-
-          number: number;
-          type: string;
-          version: string;
-          layout: string;
-          engine_loss_max: number;
-          propellant_1: string;
-          propellant_2: string;
-          thrust_sea_level: RocketThrust;
-          thrust_vacuum: RocketThrust;
-          thrust_to_weight: number;
-         -->
       </mat-expansion-panel>
     </mat-accordion>
 
