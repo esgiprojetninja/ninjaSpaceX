@@ -10,11 +10,12 @@ import { Rocket } from "../../models/Rocket";
   styleUrls: ["./rocket-list.component.css"]
 })
 export class RocketListComponent implements OnInit, OnDestroy {
+  private subscriber: Subscription;
   public isLoading: boolean;
   public rockets$: Observable<Rocket[]>;
-  private subscriber: Subscription;
   public selectedRocket: Rocket;
   public currentBackground: string;
+  public panelOpenState: boolean;
 
   constructor(private rocketService: RocketService) { }
 
@@ -31,6 +32,7 @@ export class RocketListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.panelOpenState = false;
     this.isLoading = true;
     this.rockets$ = this.rocketService.fetchAll();
     this.subscriber = this.rockets$.subscribe((rockets: Rocket[]) => {
