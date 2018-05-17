@@ -2,16 +2,23 @@
   <mat-spinner></mat-spinner>
 </div>
 
+<h1>Launches</h1>
+
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
     <mat-nav-list>
-      <a
-        mat-list-item
-        *ngFor="let launch of launches"
-        [routerLink]="['/launches', launch.flight_number]"
+      <mat-list-item
+      *ngFor="let launch of launches"
+      [routerLink]="['/launches', launch.flight_number]"
       >
-        {{ launch.mission_name }}
-      </a>
+        <img matListAvatar src="{{ launch.links.mission_patch_small }}" alt="Mission patch">
+        <h4 matLine>
+          {{ launch.mission_name }}
+        </h4>
+        <span *ngIf="launch.launch_success" class="fa fa-check-circle"></span>
+        <span *ngIf="!launch.launch_success" class="fa fa-times-circle"></span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
     </mat-nav-list>
   </mat-card-content>
 </mat-card>

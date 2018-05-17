@@ -22,7 +22,15 @@
     </mat-list>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>CORE DETAILS</button>
-    <button mat-button>LAUNCH SITE DETAILS</button>
+    <a
+      mat-button
+      [routerLink]="['/detailed-cores', launch.rocket.first_stage.cores[0].core_serial]">
+        CORE DETAILS
+    </a>
+    <a
+      mat-button
+      [routerLink]="['/launchpads', launch.launch_site.site_id]">
+        LAUNCH SITE DETAILS
+    </a>
   </mat-card-actions>
 </mat-card>
