@@ -10,6 +10,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
+import { MatDividerModule } from "@angular/material/divider";
 import { MatChipsModule } from "@angular/material/chips";
 
 @NgModule({
@@ -27,6 +28,7 @@ import { MatChipsModule } from "@angular/material/chips";
     MatToolbarModule,
     MatIconModule,
     MatExpansionModule,
+    MatDividerModule,
     MatChipsModule
     ],
     declarations: []
