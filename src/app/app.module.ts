@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { MatInputModule, MatFormFieldModule } from '@angular/material';
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -32,7 +34,7 @@ import { DetailCoreComponent } from "./components/detail-core/detail-core.compon
     DetailedcapsuleComponent,
     DetailCoreComponent
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule, MatFormFieldModule , MatInputModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

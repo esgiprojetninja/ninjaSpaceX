@@ -2,6 +2,16 @@
   <mat-spinner></mat-spinner>
 </div>
 
+<div class="example-container" *ngIf="!isLoading">
+  <form #f="ngForm" class="example-container" (submit)="onSubmit(f)">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Year launched" [(ngModel)]="launches.year_launched" name="yearLaunched">
+      </mat-form-field>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+  </form>    
+</div>
+
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
     <mat-nav-list>
