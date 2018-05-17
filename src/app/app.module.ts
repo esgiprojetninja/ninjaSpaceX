@@ -10,7 +10,14 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
 import { RocketListComponent } from "./components/rocket-list/rocket-list.component";
 import { HugeNumberPipe } from "./pipes/hugeNumber.pipe";
-
+import { CapsulesListComponent } from "./components/capsules-list/capsules-list.component";
+import { CapsuleComponent } from "./components/capsule/capsule.component";
+import { DetailedCoreListComponent } from "./components/detailed-core-list/detailed-core-list.component";
+import { LaunchpadListComponent } from "./components/launchpad-list/launchpad-list.component";
+import { LaunchpadComponent } from "./components/launchpad/launchpad.component";
+import { DetailedcapsulesListComponent } from "./components/detailedcapsules-list/detailedcapsules-list.component";
+import { DetailedcapsuleComponent } from "./components/detailedcapsule/detailedcapsule.component";
+import { DetailCoreComponent } from "./components/detail-core/detail-core.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +26,15 @@ import { HugeNumberPipe } from "./pipes/hugeNumber.pipe";
     LaunchesListComponent,
     LaunchComponent,
     RocketListComponent,
-    HugeNumberPipe
+    HugeNumberPipe,
+    CapsulesListComponent,
+    CapsuleComponent,
+    LaunchpadListComponent,
+    LaunchpadComponent,
+    DetailedCoreListComponent,
+    DetailedcapsulesListComponent,
+    DetailedcapsuleComponent,
+    DetailCoreComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
