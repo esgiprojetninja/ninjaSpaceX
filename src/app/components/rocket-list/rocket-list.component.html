@@ -1,26 +1,37 @@
 <div class="flex-column">
-  <h2 class="align-start" color="primary">Rocket List</h2>
   <p *ngIf="isLoading">Fetching latest data</p>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div class="rocket-list-page-header full-width flex-row" [ngStyle]="{'background-image': 'url(' + currentBackground + ')'}" *ngIf="selectedRocket">
+    <div class="half-width full-height flex-column justify-content-start align-items-start">
+      <h2>{{ selectedRocket.name }}</h2>
+      <p>First flew on {{ selectedRocket.first_flight | date }}</p>
+      <p>{{ selectedRocket.active ? 'Still active !' : 'Inactive !' }}</p>
+    </div>
+    <div class="half-width full-height flex-column justify-content-start align-items-end">
+      <p>{{ selectedRocket.height.feet | hugeNumber }}<span class="rocket-unit">ft</span> high</p>
+      <p>{{ selectedRocket.diameter.feet | hugeNumber }}<span class="rocket-unit">ft</span> large</p>
+      <p>{{ selectedRocket.mass.lb | hugeNumber }}<span class="rocket-unit">lb</span> heavy</p>
+      <p>{{ getBoostersDisplay() }}</p>
+      <p>${{ selectedRocket.cost_per_launch | hugeNumber }} per launch</p>
+    </div>
+  </div>
 </div>
 
-<div class="flex-row justify-content-start align-items-start">
-
+<div *ngIf="selectedRocket" class="flex-row justify-content-start align-items-start">
   <mat-list class="full-width" *ngIf="rockets$ | async; let rockets">
     <mat-list-item (click)="selectRocket(rocket)" [ngClass]="{'active-rocket': rocket.id === selectedRocket.id}" class="full-width" *ngFor="let rocket of rockets">
       <img matListAvatar [src]="getRocketImage(rocket.id)" alt="{{rocket.id}}">
       <h3 matLine> {{rocket.name}} </h3>
-      <p matLine>
-        <span class="flex-row">
-          Launch
-          <mat-icon color="primary" *ngIf="rocket.active">done</mat-icon>
-          <mat-icon color="primary" *ngIf="!rocket.active">cancel</mat-icon>
-        </span>
-      </p>
+      <p matLine class="list-item-subtitle">{{ rocket.first_flight | date }}</p>
     </mat-list-item>
   </mat-list>
-
-  <mat-card class="displaid-rocket">
-    {{ selectedRocket | json }}
+  <mat-card class="displaid-rocket full-width">
+    <mat-card-header>
+      <mat-card-title>{{ selectedRocket.name }}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{ selectedRocket | json }}
+    </mat-card-content>
   </mat-card>
 </div>

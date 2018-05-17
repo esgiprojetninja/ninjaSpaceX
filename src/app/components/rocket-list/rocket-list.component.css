@@ -1,20 +1,49 @@
-mat-list {
-    max-width: 200px;
+.rocket-list-page-header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    min-height: 40vh;
+    color: #fff;
+    padding: 0;
+}
+.rocket-list-page-header > div {
+    background-color: rgba(8, 8, 8, .5);
+}
+.rocket-list-page-header > div > * {
+    margin-left: 16px;
+}
+.rocket-list-page-header > div:last-child > p {
+    margin-right: 16px;
+    font-weight: 500;
+    font-style: italic;
+}
+.rocket-list-page-header .rocket-unit {
+    font-size: .6em;
 }
 
+mat-list {
+    max-width: 200px;
+    height: 65vh;
+}
 mat-list-item {
     cursor: pointer;
     transition: background-color .2s ease-in-out;
 }
-
 mat-list-item.active-rocket {
-    background-color: rgba(8, 8, 8, .1);
+    background-color: rgba(255, 255, 255, .7);
 }
-
 mat-list-item:hover {
-    background-color: rgba(8, 8, 8, .1);
+    background-color: rgba(255, 255, 255, .7);
+}
+.list-item-subtitle{
+    color: rgba(8, 8, 8, .6);
 }
 
-.displaid-rocket{
-
+.displaid-rocket {
+    max-width: 600px;
+}
+.displaid-rocket mat-card-title {
+    font-weight: 900;
+    margin: 0 auto;
 }

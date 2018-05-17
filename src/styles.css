@@ -32,8 +32,16 @@ body {
     align-items: flex-start;
 }
 
+.align-items-end {
+    align-items: flex-end;
+}
+
 .full-width {
     width: 100%;
+}
+
+.half-width {
+    width: 50%;
 }
 
 .full-height {

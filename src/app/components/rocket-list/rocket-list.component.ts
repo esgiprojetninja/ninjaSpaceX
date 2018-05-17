@@ -14,11 +14,20 @@ export class RocketListComponent implements OnInit, OnDestroy {
   public rockets$: Observable<Rocket[]>;
   private subscriber: Subscription;
   public selectedRocket: Rocket;
+  public currentBackground: string;
 
   constructor(private rocketService: RocketService) { }
 
+  getBoostersDisplay(): string {
+    return this.selectedRocket.boosters > 1 ?
+      this.selectedRocket.boosters + " boosters"
+      : this.selectedRocket.boosters > 0 ?
+        "1 booster" : "No boosters";
+  }
+
   selectRocket(rocket: Rocket) {
     this.selectedRocket = rocket;
+    this.currentBackground = this.getRocketImage(rocket.id);
   }
 
   ngOnInit() {
@@ -26,11 +35,11 @@ export class RocketListComponent implements OnInit, OnDestroy {
     this.rockets$ = this.rocketService.fetchAll();
     this.subscriber = this.rockets$.subscribe((rockets: Rocket[]) => {
       this.isLoading = false;
-      this.selectedRocket = rockets[0];
+      this.selectRocket(rockets[0]);
     });
   }
 
-  getRocketImage(rocketId) {
+  getRocketImage(rocketId): string {
     return this.rocketService.getImgUrlFromId(rocketId);
   }
 

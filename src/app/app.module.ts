@@ -9,6 +9,7 @@ import { LaunchesListComponent } from "./components/launches-list/launches-list.
 import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
 import { RocketListComponent } from "./components/rocket-list/rocket-list.component";
+import { HugeNumberPipe } from "./pipes/hugeNumber.pipe";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RocketListComponent } from "./components/rocket-list/rocket-list.compon
     CompanyInfoComponent,
     LaunchesListComponent,
     LaunchComponent,
-    RocketListComponent
+    RocketListComponent,
+    HugeNumberPipe
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
