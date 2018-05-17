@@ -30,7 +30,7 @@ import { MatChipsModule } from "@angular/material/chips";
     MatExpansionModule,
     MatDividerModule,
     MatChipsModule
-    ],
-    declarations: []
+  ],
+  declarations: []
 })
 export class SharedModule {}
