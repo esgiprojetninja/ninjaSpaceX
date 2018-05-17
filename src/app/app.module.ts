@@ -8,13 +8,17 @@ import { CompanyInfoComponent } from "./components/company-info/company-info.com
 import { LaunchesListComponent } from "./components/launches-list/launches-list.component";
 import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
+import { CapsulesListComponent } from "./components/capsules-list/capsules-list.component";
+import { CapsuleComponent } from "./components/capsule/capsule.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     CompanyInfoComponent,
     LaunchesListComponent,
-    LaunchComponent
+    LaunchComponent,
+    CapsulesListComponent,
+    CapsuleComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
