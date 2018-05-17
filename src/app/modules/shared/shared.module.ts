@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-
 import { CommonModule } from "@angular/common";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -28,12 +27,10 @@ import { MatChipsModule } from "@angular/material/chips";
     MatListModule,
     MatToolbarModule,
     MatIconModule,
-    MatChipsModule,
-  ],
-  declarations: [
     MatExpansionModule,
     MatDividerModule,
     MatChipsModule
-    ]
+  ],
+  declarations: []
 })
 export class SharedModule {}

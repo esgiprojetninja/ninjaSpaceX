@@ -5,7 +5,7 @@
 <div class="example-container" *ngIf="!isLoading">
   <form #f="ngForm" class="example-container" (submit)="onSubmit(f)">
       <mat-form-field>
-        <input matInput type="text" placeholder="Year launched" [(ngModel)]="launches.year_launched" name="yearLaunched">
+        <input matInput type="text" placeholder="Year launched" [(ngModel)]="yearLaunchedText" name="yearLaunched">
       </mat-form-field>
 
       <button type="submit" class="btn btn-success">Submit</button>

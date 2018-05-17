@@ -14,6 +14,7 @@ export class LaunchesListComponent implements OnInit {
   public launches: Launch[];
   public isLoading: boolean;
   public yearLaunched: string;
+  yearLaunchedText :string = this.yearLaunched;
 
   constructor(private launchService: LaunchService, private router: Router) {}
 
