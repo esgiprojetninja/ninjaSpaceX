@@ -1,0 +1,83 @@
+<div class="flex-column">
+  <p *ngIf="isLoading">Fetching latest data</p>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div class="rocket-list-page-header full-width flex-row" [ngStyle]="{'background-image': 'url(' + currentBackground + ')'}" *ngIf="selectedRocket">
+    <div class="half-width full-height flex-column justify-content-start align-items-start">
+      <h2>{{ selectedRocket.name }}</h2>
+      <p>First flew on {{ selectedRocket.first_flight | date }}</p>
+      <p>{{ selectedRocket.active ? 'Still active !' : 'Inactive !' }}</p>
+    </div>
+    <div class="half-width full-height flex-column justify-content-start align-items-end">
+      <p>{{ selectedRocket.height.feet | hugeNumber }}<span class="rocket-unit">ft</span> high</p>
+      <p>{{ selectedRocket.diameter.feet | hugeNumber }}<span class="rocket-unit">ft</span> large</p>
+      <p>{{ selectedRocket.mass.lb | hugeNumber }}<span class="rocket-unit">lb</span> heavy</p>
+      <p>{{ getBoostersDisplay() }}</p>
+      <p *ngIf="selectedRocket.landing_legs.number > 0">{{ selectedRocket.landing_legs.number }} landing legs made of {{ selectedRocket.landing_legs.material }}</p>
+      <p *ngIf="selectedRocket.landing_legs.number == 0">No landing legs</p>
+      <p>${{ selectedRocket.cost_per_launch | hugeNumber }} per launch</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedRocket" class="flex-row justify-content-start align-items-start">
+  <mat-list class="full-width" *ngIf="rockets$ | async; let rockets">
+    <mat-list-item (click)="selectRocket(rocket)" [ngClass]="{'active-rocket': rocket.id === selectedRocket.id}" class="full-width" *ngFor="let rocket of rockets">
+      <img matListAvatar [src]="getRocketImage(rocket.id)" alt="{{rocket.id}}">
+      <h3 matLine> {{rocket.name}} </h3>
+      <p matLine class="list-item-subtitle">{{ rocket.first_flight | date }}</p>
+    </mat-list-item>
+  </mat-list>
+  <mat-card class="displaid-rocket full-width">
+    <mat-card-header>
+      <mat-card-subtitle>{{ selectedRocket.description }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>First Stage</mat-panel-title>
+          <mat-panel-description>The early takeoff phasis</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="selected-rocket-panel-content full-width flex-column align-items-start">
+          <p class="flex-row">Usage status: 
+            <mat-icon color="primary" *ngIf="selectedRocket.first_stage.reusable">autorenew</mat-icon>
+            <mat-icon color="primary" *ngIf="!selectedRocket.first_stage.reusable">clear</mat-icon>
+          </p>
+          <p>{{ selectedRocket.first_stage.engines > 0 ? 'Engines: '+ selectedRocket.first_stage.engines : 'No engines'  }}</p>
+          <p>{{ selectedRocket.first_stage.fuel_amount_tons }} tons of fuel consumed in {{ selectedRocket.first_stage.burn_time_sec }} seconds</p>
+          <p>Thrust sea level: {{ selectedRocket.first_stage.thrust_sea_level.kN}} kN</p>
+          <p>Thrust vacuum: {{ selectedRocket.first_stage.thrust_vacuum.kN}} kN</p>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Second Stage</mat-panel-title>
+          <mat-panel-description>The late takeoff phasis</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="selected-rocket-panel-content full-width flex-column align-items-start">
+          <p>{{ selectedRocket.second_stage.engines > 0 ? 'Engines: '+ selectedRocket.second_stage.engines : 'No engines' }}</p>
+          <p>{{ selectedRocket.second_stage.burn_time_sec
+            }} seconds of flight before reaching orbit</p>
+          <p>{{ selectedRocket.second_stage.thrust.kN}}kN of force deployed and used with {{ selectedRocket.second_stage.engines }} engine{{selectedRocket.second_stage.engines > 1 ? 's' : ''}}</p>
+          <p>Used material: <strong>{{ selectedRocket.second_stage.payloads.option_1 }} {{ selectedRocket.second_stage.payloads.option_2 ? 'and ' + selectedRocket.second_stage.payloads.option_2 : ' ' }}</strong> with a {{ selectedRocket.second_stage.payloads.composite_fairing.height.feet }}<span class="rocket-unit">ft</span> height and a {{ selectedRocket.second_stage.payloads.composite_fairing.diameter.feet }}<span class="rocket-unit">ft</span> diameter</p>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Engines</mat-panel-title>
+          <mat-panel-description>Take a look at the beast</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="selected-rocket-panel-content full-width flex-column align-items-start">
+          <h5>{{ selectedRocket.engines.number }} engine{{ selectedRocket.engines.number > 1 ? 's' : '' }}</h5>
+          <p>Type: {{ selectedRocket.engines.type }}</p>
+          <p>Version: {{ selectedRocket.engines.version }}</p>
+          <p>Layout: {{ selectedRocket.engines.layout }}</p>
+          <p>Max engine loss: {{ selectedRocket.engines.engine_loss_max }}</p>
+          <p>Propellants: {{ selectedRocket.engines.propellant_1 }} and {{ selectedRocket.engines.propellant_2 }}</p>
+          <p>Thrust sea level: {{ selectedRocket.engines.thrust_sea_level.kN}} kN</p>
+          <p>Thrust vacuum: {{ selectedRocket.engines.thrust_vacuum.kN}} kN</p>
+          <p>Thrust weight ratio: {{ selectedRocket.engines.thrust_to_weight}}</p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+</div>

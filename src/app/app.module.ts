@@ -8,6 +8,8 @@ import { CompanyInfoComponent } from "./components/company-info/company-info.com
 import { LaunchesListComponent } from "./components/launches-list/launches-list.component";
 import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
+import { RocketListComponent } from "./components/rocket-list/rocket-list.component";
+import { HugeNumberPipe } from "./pipes/hugeNumber.pipe";
 import { CapsulesListComponent } from "./components/capsules-list/capsules-list.component";
 import { CapsuleComponent } from "./components/capsule/capsule.component";
 import { DetailedCoreListComponent } from "./components/detailed-core-list/detailed-core-list.component";
@@ -23,6 +25,8 @@ import { DetailCoreComponent } from "./components/detail-core/detail-core.compon
     CompanyInfoComponent,
     LaunchesListComponent,
     LaunchComponent,
+    RocketListComponent,
+    HugeNumberPipe,
     CapsulesListComponent,
     CapsuleComponent,
     LaunchpadListComponent,

@@ -6,26 +6,31 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
+import { MatGridListModule } from "@angular/material/grid-list";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatExpansionModule } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatChipsModule } from "@angular/material/chips";
 
 @NgModule({
-  imports: [CommonModule],
-  exports: [
+    imports: [CommonModule],
+    exports: [
     CommonModule,
     MatSidenavModule,
     MatButtonModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    MatIconModule,
+    MatGridListModule,
     MatListModule,
     MatToolbarModule,
     MatIconModule,
+    MatExpansionModule,
     MatDividerModule,
     MatChipsModule
-  ],
-  declarations: []
+    ],
+    declarations: []
 })
 export class SharedModule {}

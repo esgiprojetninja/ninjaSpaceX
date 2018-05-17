@@ -20,8 +20,36 @@ body {
     justify-content: center;
 }
 
+.align-start {
+    align-self: flex-start;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
 .full-width {
     width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.margin-auto {
+    margin: auto;
 }
 
 .screen-height {
