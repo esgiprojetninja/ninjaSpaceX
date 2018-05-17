@@ -4,14 +4,30 @@
 
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
-    <mat-list>
-      <a
-        mat-list-item
-        *ngFor="let launchpad of launchpads"
-        [routerLink]="['/launchpads', launchpad.id]"
-      >
-        {{ launchpad.full_name }}
-      </a>
-    </mat-list>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let launchpad of launchpads">
+          <a matLine [routerLink]="['/launchpads', launchpad.id]">
+            <b>{{ launchpad.full_name }}</b>
+          </a>
+
+          <div matLine>
+              {{ launchpad.location.region }} - {{ launchpad.location.name }}
+          </div>
+          
+          <div matLine>
+              lat: {{ launchpad.location.latitude }} / lon: {{ launchpad.location.longitude }}
+          </div>
+
+          <span>
+            <mat-chip-list>
+              <mat-chip color="accent" selected="true">{{ launchpad.id }}</mat-chip>
+                <mat-chip *ngIf="launchpad.status == 'active'" color="primary" selected="true">{{ launchpad.status }}</mat-chip>
+                <mat-chip *ngIf="launchpad.status != 'active'" color="warn" selected="true">{{ launchpad.status }}</mat-chip>
+            </mat-chip-list>
+          </span>
+
+          <mat-divider matLine></mat-divider>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-card-content>
 </mat-card>
