@@ -12,6 +12,8 @@ import { CapsulesListComponent } from "./components/capsules-list/capsules-list.
 import { CapsuleComponent } from "./components/capsule/capsule.component";
 import { LaunchpadListComponent } from './components/launchpad-list/launchpad-list.component';
 import { LaunchpadComponent } from './components/launchpad/launchpad.component';
+import { DetailedcapsulesListComponent } from './components/detailedcapsules-list/detailedcapsules-list.component';
+import { DetailedcapsuleComponent } from './components/detailedcapsule/detailedcapsule.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { LaunchpadComponent } from './components/launchpad/launchpad.component';
     CapsulesListComponent,
     CapsuleComponent,
     LaunchpadListComponent,
-    LaunchpadComponent
+    LaunchpadComponent,
+    DetailedcapsulesListComponent,
+    DetailedcapsuleComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],
