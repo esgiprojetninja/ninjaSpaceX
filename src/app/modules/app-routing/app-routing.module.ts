@@ -7,6 +7,7 @@ import { LaunchesListComponent } from "../../components/launches-list/launches-l
 import { LaunchComponent } from "../../components/launch/launch.component";
 import { CapsulesListComponent } from "../../components/capsules-list/capsules-list.component";
 import { CapsuleComponent } from "../../components/capsule/capsule.component";
+import { LaunchpadListComponent } from "../../components/launchpad-list/launchpad-list.component";
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,10 @@ const appRoutes: Routes = [
   {
     path: "capsules/:id",
     component: CapsuleComponent
+  },
+  {
+    path: "launchpads",
+    component: LaunchpadListComponent
   }
 ];
 
