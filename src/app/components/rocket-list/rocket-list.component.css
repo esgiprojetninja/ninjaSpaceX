@@ -6,6 +6,8 @@
     min-height: 40vh;
     color: #fff;
     padding: 0;
+    width: 98vw;
+    margin-top: -16px;
 }
 .rocket-list-page-header > div {
     background-color: rgba(8, 8, 8, .5);

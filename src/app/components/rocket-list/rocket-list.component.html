@@ -49,8 +49,15 @@
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>Second Stage</mat-panel-title>
-          <mat-panel-description>The last takeoff phasis</mat-panel-description>
+          <mat-panel-description>The late takeoff phasis</mat-panel-description>
         </mat-expansion-panel-header>
+        <div class="selected-rocket-panel-content full-width flex-column align-items-start">
+          <p>{{ selectedRocket.second_stage.engines > 0 ? 'Engines: '+ selectedRocket.second_stage.engines : 'No engines' }}</p>
+          <p>{{ selectedRocket.second_stage.burn_time_sec
+            }} seconds of flight before reaching orbit</p>
+          <p>{{ selectedRocket.second_stage.thrust.kN}}kN of force deployed and used with {{ selectedRocket.second_stage.engines }} engine{{selectedRocket.second_stage.engines > 1 ? 's' : ''}}</p>
+          <p>Used material: <strong>{{ selectedRocket.second_stage.payloads.option_1 }} {{ selectedRocket.second_stage.payloads.option_2 ? 'and ' + selectedRocket.second_stage.payloads.option_2 : ' ' }}</strong> with a {{ selectedRocket.second_stage.payloads.composite_fairing.height.feet }}<span class="rocket-unit">ft</span> height and a {{ selectedRocket.second_stage.payloads.composite_fairing.diameter.feet }}<span class="rocket-unit">ft</span> diameter</p>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
 
