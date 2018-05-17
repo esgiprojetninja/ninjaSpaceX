@@ -4,7 +4,7 @@
 
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
-    <mat-list>
+    <mat-nav-list>
       <a
         mat-list-item
         *ngFor="let launch of launches"
@@ -12,6 +12,6 @@
       >
         {{ launch.mission_name }}
       </a>
-    </mat-list>
+    </mat-nav-list>
   </mat-card-content>
 </mat-card>
