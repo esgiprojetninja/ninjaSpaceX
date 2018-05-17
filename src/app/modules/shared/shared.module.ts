@@ -13,6 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatButtonToggleModule } from "@angular/material/button-toggle";
 
 @NgModule({
     imports: [CommonModule],
@@ -30,6 +31,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
         MatExpansionModule,
         MatDividerModule,
         MatChipsModule,
+        MatButtonToggleModule,
         MatSnackBarModule
     ],
     declarations: []

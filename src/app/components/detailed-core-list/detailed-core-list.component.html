@@ -4,8 +4,40 @@
 
 <mat-grid-list role="list" *ngIf="!isLoading" cols="2" rowHeight="2:1">
   <h1>SpaceX Cores</h1>
+  <div class="full-width flex-row">
+    <div class="flex-column">
+      <p>landing</p>
+      <div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle (click)="changeFilter('landingFilter', false)" [checked]="landingFilter==false"><mat-icon>cancel</mat-icon></mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('landingFilter', 'all')" [checked]="landingFilter=='all'">All</mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('landingFilter', true)" [checked]="landingFilter==true"><mat-icon>done</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <div class="flex-column">
+      <p>asds</p>
+      <div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle (click)="changeFilter('asdsFilter', false)" [checked]="asdsFilter==false"><mat-icon>cancel</mat-icon></mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('asdsFilter', 'all')" [checked]="asdsFilter=='all'">All</mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('asdsFilter', true)" [checked]="asdsFilter==true"><mat-icon>done</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <div class="flex-column">
+      <p>rtls</p>
+      <div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle (click)="changeFilter('rtlsFilter', false)" [checked]="rtlsFilter==false"><mat-icon>cancel</mat-icon></mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('rtlsFilter', 'all')" [checked]="rtlsFilter=='all'">All</mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('rtlsFilter', true)" [checked]="rtlsFilter==true"><mat-icon>done</mat-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </div>
   <mat-divider></mat-divider>
-  <mat-grid-tile role="listitem" *ngFor="let detailedCore of detailedCores">
+  <mat-grid-tile role="listitem" *ngFor="let detailedCore of filteredDetailedCores">
     <mat-card class="core-card-item">
       <mat-card-header>
         <mat-card-title>{{ detailedCore.core_serial }}</mat-card-title>
@@ -34,4 +66,5 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
+  <p *ngIf="!filteredDetailedCores.length" class="text-center">No core matched current filters</p>
 </mat-grid-list>
