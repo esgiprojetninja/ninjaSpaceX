@@ -32,3 +32,10 @@ body {
     background-size: cover;
 }
 
+.color-primary {
+    color: #3f51b5;
+}
+
+.color-accent {
+    color: #ff4081
+}

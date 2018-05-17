@@ -9,15 +9,44 @@
       class="card-header-image"
       [ngStyle]="{'background-image': 'url(' + mission_patch.changingThisBreaksApplicationSecurity + ')'}"></div>
     <mat-card-title>{{ launch.mission_name }}</mat-card-title>
-    <mat-card-subtitle>{{ launch.launch_site.site_name_long }} </mat-card-subtitle>
+    <mat-card-subtitle>Flight number: {{ launch.flight_number }} </mat-card-subtitle>
   </mat-card-header>
+  <iframe
+    width="100%"
+    height="315"
+    src="https://www.youtube.com/embed/rQEqKZ7CJlk"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
   <mat-card-content>
-    <p>
-      {{ launch.details }}
-    </p>
     <mat-list>
       <mat-list-item>
-        <p>Success: {{ launch.launch_success }}</p>
+        <p><strong>Success</strong>
+          <span *ngIf="launch.launch_success" class="fa fa-check-circle color-primary"></span>
+          <span *ngIf="!launch.launch_success" class="fa fa-times-circle color-accent"></span>
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <p><strong>Core reused:</strong>
+          <span *ngIf="launch.reuse.core" class="fa fa-check-circle color-primary"></span>
+          <span *ngIf="!launch.reuse.core" class="fa fa-times-circle color-accent"></span>
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>
+          <strong>Details:</strong> {{ launch.details }}
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>
+          <strong>Rocket:</strong> {{ launch.rocket.rocket_name }}
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <p>
+          <strong>Launch site:</strong> <a [routerLink]="['/launchpads', launch.launch_site.site_id]">{{ launch.launch_site.site_name_long }}</a>
+        </p>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
