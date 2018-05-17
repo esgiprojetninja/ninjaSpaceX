@@ -26,7 +26,7 @@ export interface SecondStage {
   payloads: Payload[];
 }
 
-export interface Rocket {
+export interface LaunchRocket {
   rocket_id: string;
   rocket_name: string;
   rocket_type: string;
@@ -71,7 +71,7 @@ export interface Launch {
   launch_date_unix: number;
   launch_date_utc: Date;
   launch_date_local: Date;
-  rocket: Rocket;
+  rocket: LaunchRocket;
   telemetry: Telemetry;
   reuse: Reuse;
   launch_site: LaunchSite;
