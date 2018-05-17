@@ -7,7 +7,15 @@
       <mat-form-field>
         <input matInput type="text" placeholder="Year launched" [(ngModel)]="yearLaunchedText" name="yearLaunched">
       </mat-form-field>
-
+      <label>
+          Launch status :
+          <input type="radio" name="radioLaunchSuccess" [(ngModel)]="radioLaunchSuccessInput" [value]="true">
+          Success
+          <input type="radio" name="radioLaunchSuccess" [(ngModel)]="radioLaunchSuccessInput" [value]="false">
+          Failed
+          <input type="radio" name="radioLaunchSuccess" [(ngModel)]="radioLaunchSuccessInput" [value]="undefined">
+          All
+      </label>
       <button type="submit" class="btn btn-success">Submit</button>
   </form>    
 </div>

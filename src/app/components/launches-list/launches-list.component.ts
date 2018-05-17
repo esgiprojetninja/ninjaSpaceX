@@ -4,17 +4,23 @@ import { Launch } from "src/app/models/Launch";
 import { LaunchService } from "../../providers/backend/launch/launch.service";
 import { ApiError } from "src/app/typings/ServiceError";
 import { Router, NavigationExtras } from "@angular/router";
+import { LaunchFilters } from "src/app/models/LaunchFilters";
 
 @Component({
   selector: "app-launches-list",
   templateUrl: "./launches-list.component.html",
   styleUrls: ["./launches-list.component.css"]
 })
-export class LaunchesListComponent implements OnInit {
+
+export class LaunchesListComponent implements OnInit{
   public launches: Launch[];
   public isLoading: boolean;
+  
+
   public yearLaunched: string;
   yearLaunchedText :string = this.yearLaunched;
+  public launchSuccess: boolean;
+  radioLaunchSuccessInput :boolean = this.launchSuccess;
 
   constructor(private launchService: LaunchService, private router: Router) {}
 
@@ -29,7 +35,17 @@ export class LaunchesListComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.isLoading = true;
     this.yearLaunched = form.value.yearLaunched;
-    this.launchService.fetchFilteredLaunches({launch_year: this.yearLaunched}).subscribe((data: Launch[]) => {
+    this.launchSuccess = form.value.radioLaunchSuccess;
+
+    let newParams: LaunchFilters= {"launch_year": this.yearLaunched, "launch_success": this.launchSuccess};
+    if(typeof this.yearLaunched == "undefined"){
+      delete newParams.launch_year;
+    }
+    if(typeof this.launchSuccess == "undefined"){
+      delete newParams.launch_success;
+    }
+    
+    this.launchService.fetchFilteredLaunches(newParams).subscribe((data: Launch[]) => {
       this.launches = data;
       this.isLoading = false;
     });
