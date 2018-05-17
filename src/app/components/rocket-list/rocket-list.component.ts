@@ -29,6 +29,7 @@ export class RocketListComponent implements OnInit, OnDestroy {
   selectRocket(rocket: Rocket) {
     this.selectedRocket = rocket;
     this.currentBackground = this.getRocketImage(rocket.id);
+    this.panelOpenState = false;
   }
 
   ngOnInit() {

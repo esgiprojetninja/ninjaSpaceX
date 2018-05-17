@@ -20,13 +20,14 @@
     font-weight: 500;
     font-style: italic;
 }
-.rocket-list-page-header .rocket-unit {
+.rocket-unit {
     font-size: .6em;
 }
 
 mat-list {
     max-width: 200px;
-    height: 65vh;
+    min-height: 65vh;
+    height: auto;
     background-color: rgba(8, 8, 8, .025);
 }
 mat-list-item {
