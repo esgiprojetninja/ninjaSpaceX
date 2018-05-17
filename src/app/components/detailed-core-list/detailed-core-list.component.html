@@ -2,16 +2,36 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<mat-card *ngIf="!isLoading">
-  <mat-card-content>
-    <mat-list>
-      <a
-        mat-list-item
-        *ngFor="let detailedCore of detailedCores"
-        [routerLink]="['/detailed-cores', detailedCore.core_serial]"
-      >
-        {{ detailedCore.core_serial }}
-      </a>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+<mat-grid-list role="list" *ngIf="!isLoading" cols="2" rowHeight="2:1">
+  <h1>SpaceX Cores</h1>
+  <mat-divider></mat-divider>
+  <mat-grid-tile role="listitem" *ngFor="let detailedCore of detailedCores">
+    <mat-card class="core-card-item">
+      <mat-card-header>
+        <mat-card-title>{{ detailedCore.core_serial }}</mat-card-title>
+        <mat-card-subtitle>{{ detailedCore.original_launch }}</mat-card-subtitle>
+        <button class="link-btns" color="warn" [routerLink]="['/detailed-cores', detailedCore.core_serial]" link mat-raised-button >Details</button>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-grid-list role="list" cols="3" rowHeight="2:1">
+          <mat-grid-tile role="listitem">landing</mat-grid-tile>
+          <mat-grid-tile role="listitem">asds</mat-grid-tile>
+          <mat-grid-tile role="listitem">rtls</mat-grid-tile>
+          <mat-grid-tile role="listitem">
+            <mat-icon *ngIf="detailedCore.water_landing">done_outline</mat-icon>
+            <mat-icon *ngIf="!detailedCore.water_landing">cancel_outline</mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile role="listitem">
+            <mat-icon *ngIf="detailedCore.asds_attempt">done_outline</mat-icon>
+            <mat-icon *ngIf="!detailedCore.asds_attempt">cancel_outline</mat-icon>
+          </mat-grid-tile>
+          <mat-grid-tile role="listitem">
+            <mat-icon *ngIf="detailedCore.rtls_attempt">done_outline</mat-icon>
+            <mat-icon *ngIf="!detailedCore.rtls_attempt">cancel_outline</mat-icon>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
