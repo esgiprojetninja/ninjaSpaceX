@@ -10,9 +10,16 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { LaunchComponent } from "./components/launch/launch.component";
 import { CapsulesListComponent } from "./components/capsules-list/capsules-list.component";
 import { CapsuleComponent } from "./components/capsule/capsule.component";
+<<<<<<< HEAD
 import { LaunchpadListComponent } from "./components/launchpad-list/launchpad-list.component";
 import { LaunchpadComponent } from "./components/launchpad/launchpad.component";
 import { DetailedCoreListComponent } from "./components/detailed-core-list/detailed-core-list.component";
+=======
+import { LaunchpadListComponent } from './components/launchpad-list/launchpad-list.component';
+import { LaunchpadComponent } from './components/launchpad/launchpad.component';
+import { DetailedcapsulesListComponent } from './components/detailedcapsules-list/detailedcapsules-list.component';
+import { DetailedcapsuleComponent } from './components/detailedcapsule/detailedcapsule.component';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -24,7 +31,12 @@ import { DetailedCoreListComponent } from "./components/detailed-core-list/detai
     CapsuleComponent,
     LaunchpadListComponent,
     LaunchpadComponent,
+<<<<<<< HEAD
     DetailedCoreListComponent
+=======
+    DetailedcapsulesListComponent,
+    DetailedcapsuleComponent
+>>>>>>> master
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
   providers: [],

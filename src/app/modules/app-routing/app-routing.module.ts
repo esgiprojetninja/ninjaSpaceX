@@ -10,6 +10,8 @@ import { CapsuleComponent } from "../../components/capsule/capsule.component";
 import { LaunchpadListComponent } from "../../components/launchpad-list/launchpad-list.component";
 import { LaunchpadComponent } from "../../components/launchpad/launchpad.component";
 import { DetailedCoreListComponent } from "../../components/detailed-core-list/detailed-core-list.component";
+import { DetailedcapsulesListComponent } from "../../components/detailedcapsules-list/detailedcapsules-list.component";
+import { DetailedcapsuleComponent } from "../../components/detailedcapsule/detailedcapsule.component";
 
 const appRoutes: Routes = [
   {
@@ -17,7 +19,7 @@ const appRoutes: Routes = [
     component: CompanyInfoComponent
   },
   {
-    path: "companyInfo",
+    path: "company-info",
     component: CompanyInfoComponent
   },
   {
@@ -47,6 +49,12 @@ const appRoutes: Routes = [
   {
     path: "detailed-cores",
     component: DetailedCoreListComponent
+    path: "detailed-capsules",
+    component: DetailedcapsulesListComponent
+  },
+  {
+    path: "detailed-capsules/:id",
+    component: DetailedcapsuleComponent
   }
 ];
 
