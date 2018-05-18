@@ -1,17 +1,43 @@
-<div *ngIf="isLoading" class="full-width screen-height flex-row">
-  <mat-spinner></mat-spinner>
-</div>
-
-<mat-card *ngIf="!isLoading">
-  <mat-card-content>
-    <mat-list>
-      <a
-        mat-list-item
-        *ngFor="let detailedcapsule of detailedcapsules"
-        [routerLink]="['/detailed-capsules', detailedcapsule.capsule_serial]"
-      >
-        {{ detailedcapsule.capsule_serial }}
-      </a>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+<mat-grid-list role="list" cols="2" rowHeight="2:1">
+  <h1>Capsules</h1>
+  <div class="full-width flex-row">
+    <div class="flex-column">
+      <p>Status</p>
+      <div>
+        <mat-button-toggle-group [disabled]="isLoading" name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle (click)="changeFilter('capsuleStatus', 'retired')" [checked]="capsuleStatus=='retired'">
+            <mat-icon>cancel</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('capsuleStatus', 'all')" [checked]="capsuleStatus=='all'">All</mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('capsuleStatus', 'unknown')" [checked]="capsuleStatus=='unknown'">?</mat-button-toggle>
+          <mat-button-toggle (click)="changeFilter('capsuleStatus', 'active')" [checked]="capsuleStatus=='active'">
+            <mat-icon>done</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="full-width screen-height flex-row">
+    <mat-spinner></mat-spinner>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-grid-tile role="listitem" *ngFor="let capsule of filteredCapsules">
+    <mat-card class="core-card-item">
+      <mat-card-header>
+        <mat-card-title>{{ capsule.capsule_serial }}</mat-card-title>
+        <mat-card-subtitle>{{ capsule.original_launch }}</mat-card-subtitle>
+        <button class="link-btns" color="primary" [routerLink]="['/capsules', capsule.capsule_id]" link mat-raised-button>Details</button>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-divider></mat-divider>
+          <div class="flex-column">
+            <p>Status</p>
+            <mat-icon *ngIf="capsule.status == 'retired'">cancel_outline</mat-icon>
+            <mat-icon *ngIf="capsule.status == 'active'">done_outline</mat-icon>
+            <p *ngIf="capsule.status == 'unknown'"> unknown</p>
+          </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <p *ngIf="!filteredCapsules.length" class="text-center">No capsule matched current filter</p>
+</mat-grid-list>
