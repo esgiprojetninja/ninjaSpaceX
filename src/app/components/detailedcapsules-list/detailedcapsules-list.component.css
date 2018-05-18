@@ -1,0 +1,12 @@
+.core-card-item {
+    width: 70%;
+    height: 70%;
+    word-break: break-all;
+}
+.link-btns {
+    margin: auto;
+    margin-top: 0;
+}
+.core-list-container{
+    margin-top: 25px;
+}
