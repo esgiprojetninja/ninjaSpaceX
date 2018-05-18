@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, NgForm} from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm} from "@angular/forms";
 import { Launch } from "src/app/models/Launch";
 import { LaunchService } from "../../providers/backend/launch/launch.service";
 import { ApiError } from "src/app/typings/ServiceError";
@@ -15,12 +15,10 @@ import { LaunchFilters } from "src/app/models/LaunchFilters";
 export class LaunchesListComponent implements OnInit{
   public launches: Launch[];
   public isLoading: boolean;
-  
-
   public yearLaunched: string;
-  yearLaunchedText :string = this.yearLaunched;
+  yearLaunchedText: string = this.yearLaunched;
   public launchSuccess: boolean;
-  radioLaunchSuccessInput :boolean = this.launchSuccess;
+  radioLaunchSuccessInput: boolean = this.launchSuccess;
 
   constructor(private launchService: LaunchService, private router: Router) {}
 
@@ -37,11 +35,11 @@ export class LaunchesListComponent implements OnInit{
     this.yearLaunched = form.value.yearLaunched;
     this.launchSuccess = form.value.radioLaunchSuccess;
 
-    let params: LaunchFilters= {};
-    if(typeof this.yearLaunched != "undefined"){
+    const params: LaunchFilters = {};
+    if (typeof this.yearLaunched !== "undefined") {
       params.launch_year = this.yearLaunched;
     }
-    if(typeof this.launchSuccess != "undefined"){
+    if (typeof this.launchSuccess !== "undefined") {
       params.launch_success = this.launchSuccess;
     }
 

@@ -4,19 +4,20 @@
 
 <div class="example-container" *ngIf="!isLoading">
   <form #f="ngForm" class="example-container" (submit)="onSubmit(f)">
+    <div class="full-width flex-row justify-content-space-around">
       <mat-form-field>
         <input matInput type="text" placeholder="Year launched" [(ngModel)]="yearLaunchedText" name="yearLaunched">
       </mat-form-field>
-      <label>
-          Launch status :
-          <input type="radio" name="radioLaunchSuccess" [(ngModel)]="radioLaunchSuccessInput" [value]="true">
-          Success
-          <input type="radio" name="radioLaunchSuccess" [(ngModel)]="radioLaunchSuccessInput" [value]="false">
-          Failed
-          <input type="radio" name="radioLaunchSuccess" [(ngModel)]="radioLaunchSuccessInput" [value]="undefined">
-          All
-      </label>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <div class="flex-colum">
+        <p class="full-width text-center launch-radio-label">Launch status</p>
+        <mat-radio-group class="flex-row full-width justify-content-space-around">
+          <mat-radio-button [(ngModel)]="radioLaunchSuccessInput" value="true">Success</mat-radio-button>
+          <mat-radio-button [(ngModel)]="radioLaunchSuccessInput" value="false">Failed</mat-radio-button>
+          <mat-radio-button [(ngModel)]="radioLaunchSuccessInput" value="undefined">Option 2</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <button type="submit" mat-raised-button color="accent">Submit</button>
+    </div>
   </form>    
 </div>
 <h1>Launches</h1>
