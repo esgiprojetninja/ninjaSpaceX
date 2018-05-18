@@ -1,17 +1,29 @@
+<h1>Capsules</h1>
+
 <div *ngIf="isLoading" class="full-width screen-height flex-row">
   <mat-spinner></mat-spinner>
 </div>
 
+
+
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
-    <mat-list>
-      <a
-        mat-list-item
+    <mat-nav-list>
+      <mat-list-item
         *ngFor="let capsule of capsules"
         [routerLink]="['/capsules', capsule.id]"
       >
-        {{ capsule.name }}
-      </a>
-    </mat-list>
+        <h4 matLine>
+          {{ capsule.name }}
+        </h4>
+        <p matLine>
+          Active:
+          <span *ngIf="capsule.active" class="fa fa-check-circle color-primary"></span>
+          <span *ngIf="!capsule.active" class="fa fa-times-circle color-accent"></span>
+        </p>
+        <span class="fa fa-rocket"></span>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-nav-list>
   </mat-card-content>
 </mat-card>

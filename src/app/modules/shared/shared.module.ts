@@ -14,6 +14,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { MatRadioModule } from "@angular/material/radio";
 
 @NgModule({
     imports: [CommonModule],
@@ -32,6 +33,7 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle";
         MatDividerModule,
         MatChipsModule,
         MatButtonToggleModule,
+        MatRadioModule,
         MatSnackBarModule
     ],
     declarations: []
