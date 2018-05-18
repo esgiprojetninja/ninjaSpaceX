@@ -30,7 +30,6 @@ export class LaunchComponent implements OnInit {
         })
         .subscribe(data => {
           this.launch = data[0];
-          console.log(this);
           this.mission_patch = this.sanitizer.bypassSecurityTrustUrl(
             this.launch.links.mission_patch_small
           );
