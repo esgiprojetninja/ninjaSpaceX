@@ -12,25 +12,28 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatChipsModule } from "@angular/material/chips";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatButtonToggleModule } from "@angular/material/button-toggle";
 
 @NgModule({
     imports: [CommonModule],
     exports: [
-    CommonModule,
-    MatSidenavModule,
-    MatButtonModule,
-    BrowserAnimationsModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatIconModule,
-    MatGridListModule,
-    MatListModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatExpansionModule,
-    MatDividerModule,
-    MatChipsModule
-  ],
-  declarations: []
+        CommonModule,
+        MatSidenavModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatIconModule,
+        MatGridListModule,
+        MatListModule,
+        MatToolbarModule,
+        MatExpansionModule,
+        MatDividerModule,
+        MatChipsModule,
+        MatButtonToggleModule,
+        MatSnackBarModule
+    ],
+    declarations: []
 })
 export class SharedModule {}
