@@ -9,7 +9,7 @@
       <mat-card *ngIf="!isLoading">
         <mat-card-content>
           <mat-nav-list>
-            <mat-list-item 
+            <mat-list-item
             *ngFor="let pastLaunch of pastLaunches"
             [routerLink]="['/launches', pastLaunch.flight_number]"
             >
@@ -37,7 +37,7 @@
     <mat-card *ngIf="!isLoading">
       <mat-card-content>
         <mat-nav-list>
-          <mat-list-item 
+          <mat-list-item
           [routerLink]="['/launches', latestLaunch.flight_number]"
           >
             <img matListAvatar src="{{ latestLaunch.links.mission_patch_small }}" alt="Mission patch">
@@ -63,8 +63,8 @@
     <h1>Upcoming Launches</h1>
     <mat-card *ngIf="!isLoading">
       <mat-card-content>
-        <mat-nav-list>
-          <mat-list-item 
+        <mat-list>
+          <mat-list-item
           *ngFor="let upcomingLaunch of upcomingLaunches"
           >
             <img *ngIf="upcomingLaunch.links.mission_patch_small" matListAvatar src="{{ upcomingLaunch.links.mission_patch_small }}" alt="Mission patch">
@@ -76,8 +76,8 @@
             </p>
             <mat-divider></mat-divider>
           </mat-list-item>
-        </mat-nav-list>
+        </mat-list>
       </mat-card-content>
     </mat-card>
   </div>
-</div>  
+</div>
