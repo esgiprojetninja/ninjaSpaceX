@@ -27,7 +27,6 @@ export class DetailedcapsulesListComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.detailedcapsuleService.fetchAllDetailedCapsules().subscribe(data => {
-      console.log("MAIS SUCE MOI", data);
       this.capsules = data;
       this.filteredCapsules = data;
       this.isLoading = false;
