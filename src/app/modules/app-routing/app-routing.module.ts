@@ -31,6 +31,10 @@ const appRoutes: Routes = [
     component: RocketListComponent
   },
   {
+    path: "rockets/:id",
+    component: RocketListComponent
+  },
+  {
     path: "launches",
     component: LaunchesListComponent
   },

@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Observable, Subscription } from "rxjs";
 
 import { RocketService } from "../../providers/backend/rocket/rocket.service";
@@ -17,7 +18,7 @@ export class RocketListComponent implements OnInit, OnDestroy {
   public currentBackground: string;
   public panelOpenState: boolean;
 
-  constructor(private rocketService: RocketService) { }
+  constructor(private rocketService: RocketService, private route: ActivatedRoute) { }
 
   getBoostersDisplay(): string {
     return this.selectedRocket.boosters > 1 ?
@@ -36,9 +37,17 @@ export class RocketListComponent implements OnInit, OnDestroy {
     this.panelOpenState = false;
     this.isLoading = true;
     this.rockets$ = this.rocketService.fetchAll();
-    this.subscriber = this.rockets$.subscribe((rockets: Rocket[]) => {
-      this.isLoading = false;
-      this.selectRocket(rockets[0]);
+
+    this.route.params.subscribe((params: any) => {
+      this.subscriber = this.rockets$.subscribe((rockets: Rocket[]) => {
+        let defaultRocket = rockets[0];
+        const matchedRocket = rockets.find((rocket: Rocket) => rocket.id === params.id);
+        if (params && params.id && matchedRocket) {
+          defaultRocket = matchedRocket;
+        }
+        this.isLoading = false;
+        this.selectRocket(defaultRocket);
+      });
     });
   }
 
