@@ -36,3 +36,7 @@
 .color-primary {
     color: #3f51b5;
 }
+
+.link-logo{
+    color: inherit; text-decoration: none
+}

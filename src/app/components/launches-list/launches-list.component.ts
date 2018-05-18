@@ -44,7 +44,7 @@ export class LaunchesListComponent implements OnInit{
     if(typeof this.launchSuccess != "undefined"){
       params.launch_success = this.launchSuccess;
     }
-
+    
     this.launchService.fetchFilteredLaunches(params).subscribe((data: Launch[]) => {
       this.launches = data;
       this.isLoading = false;
