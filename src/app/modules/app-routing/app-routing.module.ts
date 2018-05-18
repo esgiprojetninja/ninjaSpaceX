@@ -15,11 +15,12 @@ import { DetailedCoreListComponent } from "../../components/detailed-core-list/d
 import { DetailedcapsulesListComponent } from "../../components/detailedcapsules-list/detailedcapsules-list.component";
 import { DetailedcapsuleComponent } from "../../components/detailedcapsule/detailedcapsule.component";
 import { DetailCoreComponent } from "../../components/detail-core/detail-core.component";
+import { LaunchesHomeComponent } from "../../components/launches-home/launches-home.component";
 
 const appRoutes: Routes = [
   {
     path: "",
-    component: CompanyInfoComponent
+    component: LaunchesHomeComponent
   },
   {
     path: "company-info",

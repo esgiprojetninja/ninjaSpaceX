@@ -78,4 +78,5 @@ export interface Launch {
   launch_success: boolean;
   links: Links;
   details: string;
+  in_days: number;
 }

@@ -21,6 +21,7 @@ import { LaunchpadComponent } from "./components/launchpad/launchpad.component";
 import { DetailedcapsulesListComponent } from "./components/detailedcapsules-list/detailedcapsules-list.component";
 import { DetailedcapsuleComponent } from "./components/detailedcapsule/detailedcapsule.component";
 import { DetailCoreComponent } from "./components/detail-core/detail-core.component";
+import { LaunchesHomeComponent } from './components/launches-home/launches-home.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DetailCoreComponent } from "./components/detail-core/detail-core.compon
     DetailedCoreListComponent,
     DetailedcapsulesListComponent,
     DetailedcapsuleComponent,
-    DetailCoreComponent
+    DetailCoreComponent,
+    LaunchesHomeComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule, MatFormFieldModule , MatInputModule, FormsModule, MatCheckboxModule],
   providers: [],

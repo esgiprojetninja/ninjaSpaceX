@@ -1,0 +1,83 @@
+<div *ngIf="isLoading" class="full-width screen-height flex-row">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="wrapper-home">
+
+  <div>
+      <h1>Past Launches</h1>
+      <mat-card *ngIf="!isLoading">
+        <mat-card-content>
+          <mat-nav-list>
+            <mat-list-item
+            *ngFor="let pastLaunch of pastLaunches"
+            [routerLink]="['/launches', pastLaunch.flight_number]"
+            >
+              <img *ngIf="pastLaunch.links.mission_patch_small" matListAvatar src="{{ pastLaunch.links.mission_patch_small }}" alt="Mission patch">
+              <h4 matLine>
+                {{ pastLaunch.mission_name }}
+              </h4>
+              <p matLine>
+                Was launched in {{ pastLaunch.launch_date_utc | date:'yyyy-MM-dd'}}
+              </p>
+              <p matLine>
+                  Success:
+                  <span *ngIf="latestLaunch.launch_success" class="fa fa-check-circle color-primary"></span>
+                  <span *ngIf="!latestLaunch.launch_success" class="fa fa-times-circle color-accent"></span>
+                </p>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  <div>
+    <h1>Latest Launch</h1>
+    <mat-card *ngIf="!isLoading">
+      <mat-card-content>
+        <mat-nav-list>
+          <mat-list-item
+          [routerLink]="['/launches', latestLaunch.flight_number]"
+          >
+            <img matListAvatar src="{{ latestLaunch.links.mission_patch_small }}" alt="Mission patch">
+            <h4 matLine>
+              {{ latestLaunch.mission_name }}
+            </h4>
+            <p matLine>
+                Was launched in {{ latestLaunch.launch_date_utc | date:'yyyy-MM-dd'}}
+              </p>
+            <p matLine>
+              Success:
+              <span *ngIf="latestLaunch.launch_success" class="fa fa-check-circle color-primary"></span>
+              <span *ngIf="!latestLaunch.launch_success" class="fa fa-times-circle color-accent"></span>
+            </p>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <h1>Upcoming Launches</h1>
+    <mat-card *ngIf="!isLoading">
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+          *ngFor="let upcomingLaunch of upcomingLaunches"
+          >
+            <img *ngIf="upcomingLaunch.links.mission_patch_small" matListAvatar src="{{ upcomingLaunch.links.mission_patch_small }}" alt="Mission patch">
+            <h4 matLine>
+              {{ upcomingLaunch.mission_name }}
+            </h4>
+            <p matLine>
+              <span>Will be launched in <b> {{ upcomingLaunch.in_days}} </b> days !</span>
+            </p>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
