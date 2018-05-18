@@ -4,26 +4,82 @@
 
   <mat-card *ngIf="!isLoading" class="example-card" >
     <mat-card-header>
-      <mat-card-title>{{ capsule.name }}</mat-card-title>
+      <mat-card-title><h2>{{ capsule.name }}</h2></mat-card-title>
       <mat-card-subtitle>{{ capsule.type }} </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        Overview
-      </p>
       <mat-list>
         <mat-list-item>
-          <p>TOTAL LAUNCH PAYLOAD MASS</p>
-          <p>{{ capsule.launch_payload_mass.kg }}</p>
+          <strong>Active:</strong> {{ capsule.active }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Crew capacity:</strong> {{ capsule.crew_capacity }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Sidewall angle deg:</strong> {{ capsule.sidewall_angle_deg }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Orbit duration years:</strong> {{ capsule.orbit_duration_yr }}
         </mat-list-item>
       </mat-list>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Heat shield
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <strong>Material:</strong> {{ capsule.heat_shield.material }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Size (meters):</strong> {{ capsule.heat_shield.size_meters }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Temperature degrees:</strong> {{ capsule.heat_shield.temp_degrees }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Development partner:</strong> {{ capsule.heat_shield.dev_partner }}
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Launch payload volume
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <strong>Cubic meters:</strong> {{ capsule.launch_payload_vol.cubic_meters }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Cubic feet:</strong> {{ capsule.launch_payload_vol.cubic_feet }}
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Return payload volume
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item>
+              <strong>Cubic meters:</strong> {{ capsule.return_payload_vol.cubic_meters }}
+            </mat-list-item>
+            <mat-list-item>
+              <strong>Cubic feet:</strong> {{ capsule.return_payload_vol.cubic_feet }}
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>...</button>
-    </mat-card-actions>
   </mat-card>
 
   <div *ngIf="isLoading" class="full-width screen-height flex-row">
     <mat-spinner></mat-spinner>
   </div>
-  
