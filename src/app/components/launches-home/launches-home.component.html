@@ -45,6 +45,9 @@
               {{ latestLaunch.mission_name }}
             </h4>
             <p matLine>
+                Was launched in {{ latestLaunch.launch_date_utc | date:'yyyy-MM-dd'}}
+              </p>
+            <p matLine>
               Success:
               <span *ngIf="latestLaunch.launch_success" class="fa fa-check-circle color-primary"></span>
               <span *ngIf="!latestLaunch.launch_success" class="fa fa-times-circle color-accent"></span>
@@ -63,7 +66,6 @@
         <mat-nav-list>
           <mat-list-item 
           *ngFor="let upcomingLaunch of upcomingLaunches"
-          [routerLink]="['/launches', upcomingLaunch.flight_number]"
           >
             <img *ngIf="upcomingLaunch.links.mission_patch_small" matListAvatar src="{{ upcomingLaunch.links.mission_patch_small }}" alt="Mission patch">
             <h4 matLine>
