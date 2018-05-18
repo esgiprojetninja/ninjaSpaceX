@@ -37,15 +37,15 @@ export class LaunchesListComponent implements OnInit{
     this.yearLaunched = form.value.yearLaunched;
     this.launchSuccess = form.value.radioLaunchSuccess;
 
-    let newParams: LaunchFilters= {"launch_year": this.yearLaunched, "launch_success": this.launchSuccess};
-    if(typeof this.yearLaunched == "undefined"){
-      delete newParams.launch_year;
+    let params: LaunchFilters= {};
+    if(typeof this.yearLaunched != "undefined"){
+      params.launch_year = this.yearLaunched;
     }
-    if(typeof this.launchSuccess == "undefined"){
-      delete newParams.launch_success;
+    if(typeof this.launchSuccess != "undefined"){
+      params.launch_success = this.launchSuccess;
     }
-    
-    this.launchService.fetchFilteredLaunches(newParams).subscribe((data: Launch[]) => {
+
+    this.launchService.fetchFilteredLaunches(params).subscribe((data: Launch[]) => {
       this.launches = data;
       this.isLoading = false;
     });
