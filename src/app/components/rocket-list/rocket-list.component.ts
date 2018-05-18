@@ -39,7 +39,6 @@ export class RocketListComponent implements OnInit, OnDestroy {
     this.rockets$ = this.rocketService.fetchAll();
 
     this.route.params.subscribe((params: any) => {
-      console.log("eeeehh waaay", params);
       this.subscriber = this.rockets$.subscribe((rockets: Rocket[]) => {
         let defaultRocket = rockets[0];
         const matchedRocket = rockets.find((rocket: Rocket) => rocket.id === params.id);
