@@ -30,16 +30,19 @@ export class LaunchesListComponent implements OnInit{
     });
   }
 
+  radioChange(prop: true | false | "all") {
+    this.radioLaunchSuccessInput = prop === "all" ? null : prop;
+  }
+
   onSubmit(form: NgForm): void {
     this.isLoading = true;
     this.yearLaunched = form.value.yearLaunched;
-    this.launchSuccess = form.value.radioLaunchSuccess;
-
+    this.launchSuccess = this.radioLaunchSuccessInput;
     const params: LaunchFilters = {};
     if (typeof this.yearLaunched !== "undefined") {
       params.launch_year = this.yearLaunched;
     }
-    if (typeof this.launchSuccess !== "undefined") {
+    if (this.launchSuccess !== null) {
       params.launch_success = this.launchSuccess;
     }
 

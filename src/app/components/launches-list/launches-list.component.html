@@ -1,8 +1,4 @@
-<div *ngIf="isLoading" class="full-width screen-height flex-row">
-  <mat-spinner></mat-spinner>
-</div>
-
-<div class="example-container" *ngIf="!isLoading">
+<div class="example-container">
   <form #f="ngForm" class="example-container" (submit)="onSubmit(f)">
     <div class="full-width flex-row justify-content-space-around">
       <mat-form-field>
@@ -11,16 +7,20 @@
       <div class="flex-colum">
         <p class="full-width text-center launch-radio-label">Launch status</p>
         <mat-radio-group class="flex-row full-width justify-content-space-around">
-          <mat-radio-button [(ngModel)]="radioLaunchSuccessInput" value="true">Success</mat-radio-button>
-          <mat-radio-button [(ngModel)]="radioLaunchSuccessInput" value="false">Failed</mat-radio-button>
-          <mat-radio-button [(ngModel)]="radioLaunchSuccessInput" value="undefined">Option 2</mat-radio-button>
+          <mat-radio-button (change)="radioChange(true)" [checked]="radioLaunchSuccessInput == true"  value="true">Success</mat-radio-button>
+          <mat-radio-button (change)="radioChange(false)" [checked]="radioLaunchSuccessInput == false" value="false">Failed</mat-radio-button>
+          <mat-radio-button (change)="radioChange('all')" [checked]="radioLaunchSuccessInput == undefined" value="undefined">All</mat-radio-button>
         </mat-radio-group>
       </div>
-      <button type="submit" mat-raised-button color="accent">Submit</button>
+      <button type="submit" [disabled]="isLoading" mat-raised-button color="accent">Submit</button>
     </div>
   </form>    
 </div>
 <h1>Launches</h1>
+
+<div *ngIf="isLoading" class="full-width screen-height flex-row">
+  <mat-spinner></mat-spinner>
+</div>
 
 <mat-card *ngIf="!isLoading">
   <mat-card-content>
